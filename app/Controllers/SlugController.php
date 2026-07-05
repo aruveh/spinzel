@@ -6,6 +6,7 @@ namespace App\Controllers;
 
 use App\Repositories\PageRepository;
 use App\Repositories\PostRepository;
+use App\Repositories\NavigationRepository;
 
 final class SlugController
 {
@@ -16,7 +17,6 @@ final class SlugController
     public function __construct()
     {
         $this->pages = new PageRepository();
-
         $this->posts = new PostRepository();
     }
 
@@ -31,6 +31,22 @@ final class SlugController
      */
     public function show(string $slug): void
     {
+        /*
+        |--------------------------------------------------------------------------
+        | Navigation
+        |--------------------------------------------------------------------------
+        */
+
+        $navigationRepository = new NavigationRepository();
+
+        $navigation = [];
+
+        $primary = $navigationRepository->location('primary');
+
+        if ($primary !== null) {
+            $navigation['primary'] = $primary;
+        }
+
         /**
          * ----------------------------------------
          * Try CMS Page

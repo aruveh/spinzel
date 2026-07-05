@@ -15,7 +15,7 @@
 </head>
 
 <body>
-
+    <?php require __DIR__ . '/../partials/header.php'; ?>
     <h1>
 
         <?= htmlspecialchars($page['title']) ?>

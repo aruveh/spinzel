@@ -12,6 +12,7 @@
 
 <body>
 
+    <?php require __DIR__ . '/../partials/header.php'; ?>
     <h1>
 
         <?= htmlspecialchars($post['title']) ?>
