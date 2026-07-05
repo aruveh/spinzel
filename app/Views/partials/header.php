@@ -1,35 +1,21 @@
 <?php
 
 declare(strict_types=1);
-
 $menu = $navigation['primary'] ?? null;
-
 ?>
 
 <header class="site-header">
+    <div class="header-inner">
+        <?php require __DIR__ . '/logo.php'; ?>
 
-    <div class="container">
-
-        <div class="site-logo">
-
-            <a href="/">
-
-                Spinzel
-
-            </a>
-
+        <div class="main-navigation">
+            <button class="mobile-menu-btn">☰</button>
+            <?php require __DIR__ . '/navigation.php'; ?>
         </div>
-
-        <div class="site-navigation">
-
-            <?php
-
-            require __DIR__ . '/navigation.php';
-
-            ?>
-
-        </div>
-
+        
+        <?php /*<div class="header-actions">
+            <button class="btn-ghost">Log In</button>
+            <button class="btn-primary">Sign Up Free</button>
+        </div> */?>
     </div>
-
 </header>

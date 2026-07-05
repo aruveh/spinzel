@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Repositories;
 
+use App\Support\Config;
 use App\Services\ApiClient;
 
 final class PageRepository
@@ -20,9 +21,7 @@ final class PageRepository
      */
     public function home(): ?array
     {
-        return $this->api->get(
-            '/pages/home'
-        );
+        return $this->api->get('/pages/' . Config::get('app.home_page_slug'));
     }
 
     /**

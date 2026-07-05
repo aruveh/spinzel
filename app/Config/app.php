@@ -47,4 +47,6 @@ return [
 
     'asset_url' => $_ENV['ASSET_URL'] ?? '',
 
+    'home_page_slug' => $_ENV['HOME_PAGE_SLUG'] ?? 'home',
+
 ];

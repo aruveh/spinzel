@@ -1,28 +1,21 @@
 <?php
+    declare(strict_types=1);
 
-declare(strict_types=1);
-
-$pageTitle ??= '';
-$pageDescription ??= '';
-$pageKeywords ??= '';
-$pageView ??= '';
-
+    $pageTitle ??= 'Spinzel';
+    $pageDescription ??= '';
+    $pageKeywords ??= '';
+    $pageView ??= '';
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0">
-
-<title><?= htmlspecialchars($pageTitle) ?></title>
-
-<?php if (!empty($pageDescription)): ?>
-<meta
-    name="description"
-    content="<?= htmlspecialchars($pageDescription) ?>">
-<?php endif; ?>
-
-<link
-    rel="stylesheet"
-    href="/assets/css/style.css">
+    <title><?= htmlspecialchars($pageTitle) ?></title>
+    <?php if (!empty($pageDescription)): ?>
+    <meta name="description" content="<?= htmlspecialchars($pageDescription) ?>">
+    <?php endif; ?>
+    
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
