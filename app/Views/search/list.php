@@ -1,61 +1,47 @@
-<?php
 
-declare(strict_types=1);
-
-?>
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-
-<title>
-
-Search Results
-
-</title>
-
-</head>
+<?php require __DIR__ . '/../partials/head.php'; ?>
 
 <body>
 
-<h1>
+<div class="site-wrapper">
+    <h1>fe-php/app/Views/pages/show.php</h1>
+    <?php require __DIR__ . '/../partials/header.php'; ?>
 
-Search Results
+    <h1>
 
-</h1>
+        Search Results
 
-<?php if (!empty($_GET['q'])): ?>
+    </h1>
 
-<p>
+    <?php if (!empty($_GET['q'])): ?>
 
-Keyword:
+        <p>
 
-<strong>
+            Keyword:
 
-<?= htmlspecialchars($_GET['q']) ?>
+            <strong>
 
-</strong>
+                <?= htmlspecialchars($_GET['q']) ?>
 
-</p>
+            </strong>
 
-<?php endif; ?>
+        </p>
 
-<hr>
+    <?php endif; ?>
 
-<?php
+    <hr>
 
-require __DIR__ . '/../partials/blog-list.php';
+    <?php
 
-?>
+    require __DIR__ . '/../partials/blog-list.php';
 
-<?php
+    ?>
 
-require __DIR__ . '/../partials/pagination.php';
+    <?php
 
-?>
+    require __DIR__ . '/../partials/pagination.php';
+
+    ?>
 
 </body>
 

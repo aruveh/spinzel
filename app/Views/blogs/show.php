@@ -1,18 +1,12 @@
-<!DOCTYPE html>
 
-<html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <title><?= htmlspecialchars($post['title']) ?></title>
-
-</head>
+<?php require __DIR__ . '/../partials/head.php'; ?>
 
 <body>
 
+<div class="site-wrapper">
+    <h1>fe-php/app/Views/blogs/show.php</h1>
     <?php require __DIR__ . '/../partials/header.php'; ?>
+    
     <h1>
 
         <?= htmlspecialchars($post['title']) ?>

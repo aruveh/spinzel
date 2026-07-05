@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+namespace App\Core;
 namespace App\Controllers;
 
 use App\Repositories\PageRepository;
@@ -31,6 +32,19 @@ final class SlugController
      */
     public function show(string $slug): void
     {
+
+        /*
+        |--------------------------------------------------------------------------
+        | SEO
+        |--------------------------------------------------------------------------
+        */
+
+        $pageTitle = $seo['title'] ?? '';
+
+        $pageDescription = $seo['description'] ?? '';
+
+        $pageKeywords = $seo['keywords'] ?? '';
+        
         /*
         |--------------------------------------------------------------------------
         | Navigation

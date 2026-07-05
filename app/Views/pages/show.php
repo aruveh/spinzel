@@ -1,20 +1,7 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <title>
-
-        <?= htmlspecialchars($page['title']) ?>
-
-    </title>
-
-</head>
+<?php require __DIR__ . '/../partials/head.php'; ?>
 
 <body>
+    <h1>fe-php/app/Views/pages/show.php</h1>
     <?php require __DIR__ . '/../partials/header.php'; ?>
     <h1>
 

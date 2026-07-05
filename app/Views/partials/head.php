@@ -5,8 +5,10 @@ declare(strict_types=1);
 $pageTitle ??= '';
 $pageDescription ??= '';
 $pageKeywords ??= '';
+$pageView ??= '';
 
 ?>
+
 <meta charset="UTF-8">
 
 <meta

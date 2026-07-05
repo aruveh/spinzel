@@ -35,6 +35,18 @@ final class SearchController
             $filters['per_page'] = (int) $_GET['per_page'];
         }
 
+        /*
+        |--------------------------------------------------------------------------
+        | SEO
+        |--------------------------------------------------------------------------
+        */
+
+        $pageTitle = $seo['title'] ?? '';
+
+        $pageDescription = $seo['description'] ?? '';
+
+        $pageKeywords = $seo['keywords'] ?? '';
+
         $response = $this->search->search($filters);
 
         $posts = $response['data'];

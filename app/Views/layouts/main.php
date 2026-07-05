@@ -1,32 +1,10 @@
-<?php
 
-declare(strict_types=1);
-
-/*
-|--------------------------------------------------------------------------
-| Shared Variables
-|--------------------------------------------------------------------------
-*/
-
-$pageTitle ??= '';
-$pageDescription ??= '';
-$pageKeywords ??= '';
-$pageView ??= '';
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <?php require __DIR__ . '/../partials/head.php'; ?>
-
-</head>
+<?php require __DIR__ . '/../partials/head.php'; ?>
 
 <body>
 
 <div class="site-wrapper">
-
+<h1>fe-php/app/Views/layouts/main.php</h1>
     <?php require __DIR__ . '/../partials/header.php'; ?>
 
     <main class="site-main">

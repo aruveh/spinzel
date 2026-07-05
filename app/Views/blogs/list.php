@@ -1,39 +1,29 @@
-<?php
 
-declare(strict_types=1);
-
-?>
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-
-<title>Blogs</title>
-
-</head>
+<?php require __DIR__ . '/../partials/head.php'; ?>
 
 <body>
 
-<h1>
+<div class="site-wrapper">
+    <h1>fe-php/app/Views/blogs/list.php</h1>
+    <?php require __DIR__ . '/../partials/header.php'; ?>
 
-Blogs
+    <h1>
 
-</h1>
+        Blogs
 
-<?php
+    </h1>
 
-require __DIR__ . '/../partials/blog-list.php';
+    <?php
 
-?>
+    require __DIR__ . '/../partials/blog-list.php';
 
-<?php
+    ?>
 
-require __DIR__ . '/../partials/pagination.php';
+    <?php
 
-?>
+    require __DIR__ . '/../partials/pagination.php';
+
+    ?>
 
 </body>
 
