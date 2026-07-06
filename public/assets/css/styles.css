@@ -2306,13 +2306,11 @@ input[type="range"] {
     padding: 0;
     margin-left: 0;
 }
-.similar-grid.three-cols:not(.wp-block-group),
-.similar-grid.three-cols .wp-block-group__inner-container {
+.similar-grid.three-cols {
     grid-template-columns: repeat(3, 1fr);
 }
 #fullscreen .cpx_uqnxd_3,
-.similar-grid.four-cols:not(.wp-block-group),
-.similar-grid.four-cols .wp-block-group__inner-container {
+.similar-grid.four-cols {
     grid-template-columns: repeat(4, 1fr);
 }
 .sim-card,

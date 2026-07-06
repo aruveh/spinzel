@@ -9,86 +9,27 @@ declare(strict_types=1);
  */
 
 ?>
-
-<article class="blog-card">
-
-    <?php if (!empty($post['featured_image'])): ?>
-
-        <p>
-
+<?php if (!empty($post)): ?>
+<div class="post-card">
+    <div class="post-image pi-2">
+        <?php if (!empty($post['featured_image'])): ?>
             <a href="/<?= htmlspecialchars($post['slug']) ?>">
-
                 <img
                     src="<?= htmlspecialchars($post['featured_image']['sizes']['medium']['url'] ?? $post['featured_image']['url']) ?>"
-                    alt="<?= htmlspecialchars($post['title']) ?>"
-                    width="300">
-
+                    alt="<?= $post['title'] ?>">
             </a>
-
-        </p>
-
-    <?php endif; ?>
-
-    <h2>
-
-        <a href="/<?= htmlspecialchars($post['slug']) ?>">
-
-            <?= htmlspecialchars($post['title']) ?>
-
-        </a>
-
-    </h2>
-
-    <?php if (!empty($post['category'])): ?>
-
-        <p>
-
-            <strong>Category:</strong>
-
-            <a href="/category/<?= htmlspecialchars($post['category']['slug']) ?>">
-
-                <?= htmlspecialchars($post['category']['name']) ?>
-
-            </a>
-
-        </p>
-
-    <?php endif; ?>
-
-    <?php if (!empty($post['excerpt'])): ?>
-
-        <p>
-
-            <?= $post['excerpt'] ?>
-
-        </p>
-
-    <?php endif; ?>
-
-    <p>
-
-        <strong>Published:</strong>
-
-        <?= htmlspecialchars($post['published']['formatted'] ?? '-') ?>
-
-    </p>
-
-    <p>
-
-        <strong>Reading Time:</strong>
-
-        <?= htmlspecialchars($post['reading_time']['formatted'] ?? '-') ?>
-
-    </p>
-
-    <p>
-
-        <strong>Views:</strong>
-
-        <?= htmlspecialchars($post['views']['formatted'] ?? '-') ?>
-
-    </p>
-
-</article>
-
-<hr>
+        <?php endif;?>
+    </div>
+    <div class="post-body">
+        <?php // <span class="post-cat-pill pc-earn">💰 Earning Tips</span> ?>
+        <div class="post-title"><?= $post['title'] ?></div>
+        <?= !empty($post['excerpt']) ? '<p class="post-excerpt">' . $post['excerpt'] . '</p>' : '' ?>
+        <div class="post-footer">
+            <div class="post-author">
+                ⏱ <?= $post['reading_time']['formatted'] ?><?= $post['views']['count'] > 999 ? ' · ' . $post['views']['formatted'] . ' views' : '' ?> 
+            </div>
+            <a href="/<?= htmlspecialchars($post['slug']) ?>" class="post-read-more">Read →</a>
+        </div>
+    </div>
+</div>
+<?php endif;?>

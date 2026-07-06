@@ -24,6 +24,11 @@
 
 <?= $page['content'] ?>
 
+    <?php require __DIR__ . '/../partials/footer.php'; ?>
+
+        <script type="text/javascript">
+    console.log('fe-php/app/Views/home/index.php')
+</script>
 </body>
 
 </html>

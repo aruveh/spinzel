@@ -6,6 +6,7 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Repositories\PostRepository;
+use App\Repositories\CategoryRepository;
 
 final class BlogController extends Controller
 {
@@ -31,6 +32,8 @@ final class BlogController extends Controller
 
         if (isset($_GET['per_page'])) {
             $filters['per_page'] = (int) $_GET['per_page'];
+        } else {
+            $filters['per_page'] = 10;
         }
 
         if (isset($_GET['search'])) {
@@ -68,11 +71,22 @@ final class BlogController extends Controller
 
         $pagination = $response['meta']['pagination'] ?? [];
 
+        $categoryRepository = new CategoryRepository();
+
+        $categoriesResponse = $categoryRepository->all([
+
+            'per_page' => 5,
+
+        ]);
+
+        $categories = $categoriesResponse['data'] ?? [];
+
         $this->render(
             'blogs/list',
             [
                 'posts'      => $posts,
                 'pagination' => $pagination,
+                'categories' => $categories,
             ],
             [
                 'title'       => 'Blogs',

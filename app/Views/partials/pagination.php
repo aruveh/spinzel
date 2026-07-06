@@ -23,6 +23,10 @@ $query = $_GET;
 
 ?>
 
+<div class="load-more-wrap">
+    <button class="btn-load-more">Load More Articles ↓</button>
+</div>
+<?php /*
 <hr>
 
 <nav class="pagination">
@@ -82,3 +86,4 @@ $query = $_GET;
     <?php endif; ?>
 
 </nav>
+*/
