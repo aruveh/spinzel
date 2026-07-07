@@ -6,6 +6,8 @@
 <script type="text/javascript">
     console.log('fe-php/app/Views/layouts/main.php')
 </script>
-    <script src="fe-php/app/Views/pages/show.php"></script>
+
+    <script src="https://cdn.cpx-research.com/assets/js/script_tag_v2.0.js"></script>
+    <script src="/assets/js/theme.js"></script>
 </body>
 </html>

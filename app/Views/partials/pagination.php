@@ -1,89 +1,32 @@
 <?php
+    declare(strict_types=1);
 
-declare(strict_types=1);
+    if (empty($pagination)) {
+        return;
+    }
 
-/**
- * Required:
- *
- * $pagination
- */
+    $currentPage = (int) ($pagination['page'] ?? 1);
+    $totalPages  = (int) ($pagination['total_pages'] ?? 1);
 
-if (empty($pagination)) {
-    return;
-}
+    if ($totalPages <= 1) {
+        return;
+    }
 
-$currentPage = (int) ($pagination['page'] ?? 1);
-$totalPages  = (int) ($pagination['total_pages'] ?? 1);
-
-if ($totalPages <= 1) {
-    return;
-}
-
-$query = $_GET;
-
+    $query = $_GET;
 ?>
 
 <div class="load-more-wrap">
-    <button class="btn-load-more">Load More Articles ↓</button>
-</div>
-<?php /*
-<hr>
-
-<nav class="pagination">
-
-    <?php if ($currentPage > 1): ?>
-
-        <?php
+    <?php
+        if ($currentPage > 1): 
         $query['page'] = $currentPage - 1;
-        ?>
-
-        <a href="?<?= htmlspecialchars(http_build_query($query)) ?>">
-
-            ← Previous
-
-        </a>
-
-    <?php endif; ?>
-
-    <?php for ($page = 1; $page <= $totalPages; $page++): ?>
-
-        <?php
-        $query['page'] = $page;
-        ?>
-
-        <?php if ($page === $currentPage): ?>
-
-            <strong>
-
-                <?= $page ?>
-
-            </strong>
-
-        <?php else: ?>
-
-            <a href="?<?= htmlspecialchars(http_build_query($query)) ?>">
-
-                <?= $page ?>
-
-            </a>
-
-        <?php endif; ?>
-
-    <?php endfor; ?>
-
-    <?php if ($currentPage < $totalPages): ?>
-
-        <?php
+    ?>
+        <a class="btn-load-more"href="?<?= htmlspecialchars(http_build_query($query)) ?>">&larr; Previous Page</a>
+    <?php
+        endif; 
+        if ($currentPage < $totalPages):
         $query['page'] = $currentPage + 1;
-        ?>
+    ?>
 
-        <a href="?<?= htmlspecialchars(http_build_query($query)) ?>">
-
-            Next →
-
-        </a>
-
+        <a class="btn-load-more" href="?<?= htmlspecialchars(http_build_query($query)) ?>">Next Page &rarr;</a>
     <?php endif; ?>
-
-</nav>
-*/
+</div>

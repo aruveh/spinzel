@@ -1,51 +1,32 @@
-<aside class="blog-sidebar">
-
-        <div class="sidebar-widget">
-            <div class="widget-title">Popular Posts</div>
-            <div class="popular-posts">
-                <div class="pop-post">
-                    <div class="pop-num">01</div>
-                    <div>
-                        <div class="pop-title">How to Make $200/Month from Surveys: A Realistic Guide</div>
-                        <div class="pop-meta">⏱ 10 min · 18.2K views</div>
-                    </div>
-                </div>
-                <div class="pop-post">
-                    <div class="pop-num">02</div>
-                    <div>
-                        <div class="pop-title">10 Tricks to Qualify for More Surveys</div>
-                        <div class="pop-meta">⏱ 5 min · 11.9K views</div>
-                    </div>
-                </div>
-                <div class="pop-post">
-                    <div class="pop-num">03</div>
-                    <div>
-                        <div class="pop-title">Quick & Easy Ways to Make Money Online Today</div>
-                        <div class="pop-meta">⏱ 7 min · 9.4K views</div>
-                    </div>
-                </div>
-                <div class="pop-post">
-                    <div class="pop-num">04</div>
-                    <div>
-                        <div class="pop-title">The Spinzel Referral Program: $80 in One Month</div>
-                        <div class="pop-meta">⏱ 4 min · 7.8K views</div>
-                    </div>
-                </div>
-                <div class="pop-post">
-                    <div class="pop-num">05</div>
-                    <div>
-                        <div class="pop-title">Best Payout Options: PayPal vs Gift Cards</div>
-                        <div class="pop-meta">⏱ 3 min · 6.1K views</div>
-                    </div>
+<aside class="blog-aside">
+        <?php if (isset($recentPosts)): ?>
+            <div class="sidebar-widget">
+                <div class="widget-title">Recent Posts</div>
+                <div class="popular-posts">
+                    <?php
+                        foreach ($recentPosts as $index => $post):
+                    ?>
+                        <div class="pop-post">
+                            <span class="pop-num"><?= str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) ?></span>
+                            <div>
+                                <div class="pop-title">
+                                    <a href="/<?= htmlspecialchars($post['slug']) ?>"><?= $post['title'] ?></a>
+                                </div>
+                                <div class="pop-meta">⏱ 10 min · 18.2K views</div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
-        </div>
+        <?php endif; ?>
 
         <div class="sidebar-widget newsletter-widget">
             <div class="widget-title">Get earning tips weekly</div>
             <p class="newsletter-desc">New survey alerts, earning guides, and payout tips delivered to your inbox every Tuesday.</p>
-            <input class="nl-input" type="email" placeholder="your@email.com">
-            <button class="btn-nl-sub">Subscribe Free →</button>
+            <form id="newsletterForm">
+                <input id="newsletterEmail" class="nl-input" name="email" type="email" placeholder="your@email.com" required="">
+                <button class="btn-nl-sub" id="newsLetterBtn">Subscribe Free →</button>
+            </form>
         </div>
 
         <div class="sidebar-widget earning-tips-widget">
@@ -64,22 +45,20 @@
             </div>
         </div>
 
-        <div class="sidebar-widget">
-            <div class="widget-title">Browse by Topic</div>
-            <div class="tag-cloud">
-                <div class="tag">Paid Surveys</div>
-                <div class="tag">Passive Income</div>
-                <div class="tag">Make Money Online</div>
-                <div class="tag">Work From Home</div>
-                <div class="tag">Side Hustle</div>
-                <div class="tag">Referral Programs</div>
-                <div class="tag">Survey Tips</div>
-                <div class="tag">PayPal Cash</div>
-                <div class="tag">Market Research</div>
-                <div class="tag">Student Income</div>
-                <div class="tag">Gift Cards</div>
-                <div class="tag">Payout Guide</div>
+        <?php if (isset($categories)): ?>
+            <div class="sidebar-widget">
+                <div class="widget-title">Browse by Topic</div>
+                <div class="tag-cloud">
+                    <?php
+                        foreach ($categories as $category):
+                            if($category['count'] > 0 && $category['slug'] !== 'blogs' && $category['slug'] !== 'uncategorized'):
+                    ?>
+                        <a href="/blogs?category=<?= htmlspecialchars($category['slug']) ?>"
+                            class="tag">
+                            <?= $category['name'] ?>
+                        </a>
+                    <?php endif;endforeach; ?>
+                </div>
             </div>
-        </div>
-
+        <?php endif; ?>
     </aside>

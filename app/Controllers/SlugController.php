@@ -8,6 +8,7 @@ namespace App\Controllers;
 use App\Repositories\PageRepository;
 use App\Repositories\PostRepository;
 use App\Repositories\NavigationRepository;
+use App\Repositories\CategoryRepository;
 
 final class SlugController
 {
@@ -87,8 +88,24 @@ final class SlugController
         $postResponse = $this->posts->findBySlug($slug);
 
         if ($postResponse !== null) {
+            $recentResponse = $this->posts->all([
+                'per_page' => 5,
+            ]);
+            $similarPosts = $this->posts->all([
+                'category' => 'blogs',
+                'per_page' => 3,
+                'order' => 'DESC'
+            ]);
+            $categoryRepository = new CategoryRepository();
+            $categoriesResponse = $categoryRepository->all([
+                'per_page' => 5,
+            ]);
 
             $post = $postResponse['data'];
+            $recentPosts = $recentResponse['data'] ?? [];
+            $similarPosts = $similarPosts['data'] ?? [];
+
+            $categories = $categoriesResponse['data'] ?? [];
 
             require __DIR__ . '/../Views/blogs/show.php';
 

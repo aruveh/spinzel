@@ -9,8 +9,8 @@
                 if($category['count'] > 0 && $category['slug'] !== 'blogs' && $category['slug'] !== 'uncategorized'):
         ?>
             <a href="/blogs?category=<?= htmlspecialchars($category['slug']) ?>"
-                class="cat-tab" onclick="setCat(this)">
-                <?= htmlspecialchars($category['name']) ?>
+                class="cat-tab">
+                <?= $category['name'] ?>
             </a>
         <?php endif;endforeach; ?>
     </div>

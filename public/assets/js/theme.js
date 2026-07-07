@@ -48,4 +48,41 @@
         }
 
     });
-})()
+})();
+
+(function () {
+    const script1 = {
+        div_id: 'fullscreen',
+        theme_style: 1,
+        order_by: 2,
+        limit_surveys: 7
+    };
+    const script2 = {
+        div_id: 'cpx_fullscreen',
+        theme_style: 1,
+        order_by: 2,
+        limit_surveys: 7
+    };
+
+    const config = {
+        general_config: {
+            app_id: "32507",
+            ext_user_id: "user_1",
+            secure_hash: "f6828b276977f34bd7f3062f47982d3ff82b8f1f7fb1462d942005f03b74e3ad"
+        },        
+        style_config: {
+            text_color: '#2b2b2b',
+            survey_box: {
+                topbar_background_color: '#ffaf20',
+                box_background_color: 'white',
+                rounded_borders: true,
+                stars_filled: 'black',
+            },
+        },
+        script_config: [script1, script2],
+        debug: false,
+        useIFrame: true
+    };
+
+    window.config = config;
+})();

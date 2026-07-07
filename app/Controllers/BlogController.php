@@ -74,12 +74,15 @@ final class BlogController extends Controller
         $categoryRepository = new CategoryRepository();
 
         $categoriesResponse = $categoryRepository->all([
-
             'per_page' => 5,
-
         ]);
 
         $categories = $categoriesResponse['data'] ?? [];
+        $recentResponse = $this->posts->all([
+            'per_page' => 5,
+        ]);
+        $recentPosts = $recentResponse['data'] ?? [];
+
 
         $this->render(
             'blogs/list',
@@ -87,6 +90,7 @@ final class BlogController extends Controller
                 'posts'      => $posts,
                 'pagination' => $pagination,
                 'categories' => $categories,
+                'recentPosts' => $recentPosts,
             ],
             [
                 'title'       => 'Blogs',
