@@ -20,6 +20,18 @@ final class Router
     }
 
     /**
+     * Register a POST route.
+     */
+    public function post(
+        string $uri,
+        array $action
+    ): void {
+
+        $this->routes['POST'][$uri] = $action;
+
+    }
+
+    /**
      * Dispatch the current request.
      */
     public function dispatch(): void

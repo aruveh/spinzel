@@ -12,6 +12,8 @@ $dotenv = Dotenv::createImmutable(
 );
 $dotenv->load();
 
+session_start();
+
 $router = new Router();
 require __DIR__ . '/../routes/web.php';
 
