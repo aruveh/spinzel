@@ -1,8 +1,9 @@
 <?php require __DIR__ . '/../partials/head.php'; ?>
 
 <body>
-    <?php require __DIR__ . '/../partials/header.php'; ?>
     <?php
+        require __DIR__ . '/../partials/header.php';
+        
         if (isset($post)):
 
             $startDateString = $post['adaptation']['a9_start_datetime'];
