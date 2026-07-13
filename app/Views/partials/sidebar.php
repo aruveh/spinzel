@@ -1,4 +1,34 @@
 <aside class="blog-aside">
+        <?php
+            if(isset($post)):
+                $adapt = $post['adaptation'];
+                $meta = $post['meta'];
+                $surveylink = $adapt['a9_survey_link'];
+        ?>
+        <div class="take-survey-cta">
+            <div class="reward-display">
+                <div class="reward-label">Survey Reward</div>
+                <div class="reward-amount"><sup>$</sup><?= $adapt['a9_price'] ?></div>
+                <div class="reward-sub">Paid within 24hrs of completion</div>
+            </div>
+
+            <div class="urgency-row">
+                <span class="urg-icon">⏰</span>
+                Closes in <strong style="margin-left:4px"><?= $daysLeft; ?> days(s)</strong>
+            </div>
+            
+            <?php if(!isset($surveylink)): ?>
+            <button class="btn-take-big" onclick="location.href='<?= $surveylink; ?>'">Start Survey Now →</button>
+            <p class="cta-note">You must be <a href="#">logged in</a> to take surveys. By starting, you agree to our <a href="#">survey terms</a>. Reward credited within 24 hours.</p>
+            <?php else: ?>
+            <div class="not-eligible">
+                <div class="not-elig-title">You may not be eligible</div>
+                <div class="not-elig-sub">This survey targets <strong><?= $adapt['a9_age_group'] ?></strong> age groups in the <strong><?= $adapt['a9_country'] ?></strong>. Try other surveys that match your profile.</div>
+                <button class="btn-browse" onclick="location.href='/browse-surveys'">Browse All Surveys →</button>
+            </div>
+            <?php endif; ?>
+        </div>
+        <?php endif; ?>
         <?php if (isset($recentPosts)): ?>
             <div class="sidebar-widget">
                 <div class="widget-title">Recent Posts</div>

@@ -88,11 +88,12 @@ final class SlugController
         $postResponse = $this->posts->findBySlug($slug);
 
         if ($postResponse !== null) {
+            $currentCategory = $postResponse['data']['categories'][0]['slug'];
             $recentResponse = $this->posts->all([
                 'per_page' => 5,
             ]);
             $similarPosts = $this->posts->all([
-                'category' => 'blogs',
+                'category' => $currentCategory,
                 'per_page' => 3,
                 'order' => 'DESC'
             ]);
