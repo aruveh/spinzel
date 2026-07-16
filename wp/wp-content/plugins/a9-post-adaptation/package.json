@@ -1,0 +1,13 @@
+{
+    "name": "a9-post-adaptation",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "start": "wp-scripts start",
+        "build": "wp-scripts build"
+    },
+    "devDependencies": {
+        "@wordpress/scripts": "^30.13.0",
+        "webpack-merge": "^6.0.1"
+    }
+}

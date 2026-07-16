@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "a9/country",
+  "title": "A9 Country",
+  "category": "widgets",
+  "icon": "location-alt",
+  "description": "Displays the country flag and short code.",
+  "keywords": [
+    "country",
+    "flag",
+    "a9"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "a9-post-adaptation"
+}

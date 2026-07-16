@@ -1,0 +1,20 @@
+<?php
+
+declare(strict_types=1);
+
+use App\Core\Router;
+use Dotenv\Dotenv;
+
+require __DIR__ . '/vendor/autoload.php';
+
+$dotenv = Dotenv::createImmutable(
+    __DIR__
+);
+$dotenv->load();
+
+session_start();
+
+$router = new Router();
+require __DIR__ . '/routes/web.php';
+
+$router->dispatch();

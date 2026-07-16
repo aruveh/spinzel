@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "a9/reading-time",
+  "title": "A9 Reading Time",
+  "category": "widgets",
+  "icon": "clock",
+  "description": "Displays the estimated reading time of the current post.",
+  "keywords": [
+    "reading",
+    "time",
+    "minutes",
+    "a9"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "a9-post-adaptation"
+}

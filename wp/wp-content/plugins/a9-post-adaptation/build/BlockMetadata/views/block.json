@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "a9/views",
+  "title": "A9 Views",
+  "category": "widgets",
+  "icon": "visibility",
+  "description": "Displays the post view count.",
+  "keywords": [
+    "views",
+    "visits",
+    "a9"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "a9-post-adaptation"
+}

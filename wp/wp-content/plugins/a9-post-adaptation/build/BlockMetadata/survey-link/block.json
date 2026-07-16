@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "a9/survey-link",
+  "title": "A9 Survey Link",
+  "category": "widgets",
+  "icon": "admin-links",
+  "description": "Displays the survey link.",
+  "keywords": [
+    "survey",
+    "link",
+    "url",
+    "a9"
+  ],
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "Open Survey"
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "a9-post-adaptation"
+}

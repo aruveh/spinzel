@@ -8,6 +8,8 @@
                 $surveyCountry = $adapt['a9_country'];
                 $usersCountry = getVisitorCountryCode();
                 $surveylink = $adapt['a9_survey_link'];
+
+                if ($adapt['a9_price'] > 0):
         ?>
         <div class="take-survey-cta">
             <div class="reward-display">
@@ -16,10 +18,13 @@
                 <div class="reward-sub">Paid within 24hrs of completion</div>
             </div>
 
+            
+            <?php if(isset($daysLeft)): ?>
             <div class="urgency-row">
                 <span class="urg-icon">⏰</span>
                 Closes in <strong style="margin-left:4px"><?= $daysLeft; ?> days(s)</strong>
             </div>
+            <?php endif; ?>
             
             <?php if(isset($surveylink) && ($surveyCountry === $usersCountry)): ?>
             <button class="btn-take-big" onclick="location.href='<?= $surveylink; ?>'">Start Survey Now →</button>
@@ -32,7 +37,7 @@
             </div>
             <?php endif; ?>
         </div>
-        <?php endif; ?>
+        <?php endif; endif; ?>
         <?php if (isset($recentPosts)): ?>
             <div class="sidebar-widget">
                 <div class="widget-title">Recent Posts</div>

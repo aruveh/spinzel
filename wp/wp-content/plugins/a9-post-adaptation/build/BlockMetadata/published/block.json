@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "a9/published",
+  "title": "A9 Published Date",
+  "category": "widgets",
+  "icon": "calendar-alt",
+  "description": "Displays the published date of the current post.",
+  "keywords": [
+    "published",
+    "date",
+    "a9"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "a9-post-adaptation"
+}

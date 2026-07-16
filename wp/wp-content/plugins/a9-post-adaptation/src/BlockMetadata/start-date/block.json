@@ -1,0 +1,19 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "a9/start-date",
+    "title": "A9 Start Date",
+    "category": "widgets",
+    "icon": "calendar-alt",
+    "description": "Displays the survey start date and time.",
+    "keywords": [
+        "start",
+        "date",
+        "survey",
+        "a9"
+    ],
+    "supports": {
+        "html": false
+    },
+    "textdomain": "a9-post-adaptation"
+}

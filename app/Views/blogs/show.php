@@ -3,9 +3,8 @@
 <body>
     <?php
         require __DIR__ . '/../partials/header.php';
-        
         if (isset($post)):
-
+        
             $startDateString = $post['adaptation']['a9_start_datetime'];
             $endDateString = $post['adaptation']['a9_end_datetime'];
 
