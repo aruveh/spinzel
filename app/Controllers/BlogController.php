@@ -58,15 +58,6 @@ final class BlogController extends Controller
 
         $response = $this->posts->all($filters);
 
-        if (
-            $response === null ||
-            empty($response['data'])
-        ) {
-            http_response_code(404);
-
-            exit('Posts not found.');
-        }
-
         $posts = $response['data'];
 
         $pagination = $response['meta']['pagination'] ?? [];

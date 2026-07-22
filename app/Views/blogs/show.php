@@ -85,7 +85,7 @@
                         <?php endif; ?>
                         <?php 
                             $country = $post['adaptation']['a9_country'];
-                            if(isset ($country)):
+                            if($country !== ''):
                         ?>
                         <div class="meta-item">
                             <span class="meta-icon">🌍</span>
@@ -97,7 +97,7 @@
                         <?php endif; ?>
                         <?php 
                             $age = $post['adaptation']['a9_age_group'];
-                            if(isset ($age)):
+                            if($age !== ''):
                         ?>
                         <div class="meta-item">
                             <span class="meta-icon">🌍</span>
@@ -109,7 +109,7 @@
                         <?php endif; ?>
                         <?php 
                             $time = $post['adaptation']['a9_end_datetime'];
-                            if(isset ($time)):
+                            if($time !== ''):
                         ?>
                         <div class="meta-item">
                             <span class="meta-icon">📅</span>
@@ -141,6 +141,9 @@
                         </div>
                     </div>*/ ?>
                     <p class="survey-description"><?= $post['excerpt'] ?></p>
+                    <?php 
+                        if($percentageLeft > 0):
+                    ?>
                     <div class="progress-section">
                         <div class="prog-header">
                             <span class="prog-title">Survey Progress</span>
@@ -153,6 +156,7 @@
                             <span><?= $percentageLeft.'%'; ?> filled</span>
                         </div>
                     </div>
+                    <?php endif; ?>
                 </div>
 
                 <div class="details-card">

@@ -8,26 +8,34 @@
                 $surveyCountry = $adapt['a9_country'];
                 $usersCountry = getVisitorCountryCode();
                 $surveylink = $adapt['a9_survey_link'];
+                $isSurveyPost = isset($post['categories']) && $adapt['a9_survey_link'] !== '';
 
-                if ($adapt['a9_price'] > 0):
+                if ($isSurveyPost):
         ?>
         <div class="take-survey-cta">
+            <?php if(isset($adapt['a9_price']) && $adapt['a9_price'] > 0): ?>
             <div class="reward-display">
                 <div class="reward-label">Survey Reward</div>
                 <div class="reward-amount"><sup>$</sup><?= $adapt['a9_price'] ?></div>
                 <div class="reward-sub">Paid within 24hrs of completion</div>
             </div>
 
+            <?php endif; ?>
             
-            <?php if(isset($daysLeft)): ?>
+            <?php if(isset($daysLeft) && $daysLeft > 0): ?>
             <div class="urgency-row">
                 <span class="urg-icon">⏰</span>
                 Closes in <strong style="margin-left:4px"><?= $daysLeft; ?> days(s)</strong>
             </div>
+            <?php else: ?>
+            <div class="urgency-row">
+                <span class="urg-icon">⏰</span>
+                Survey has expired.
+            </div>
             <?php endif; ?>
             
             <?php if(isset($surveylink) && ($surveyCountry === $usersCountry)): ?>
-            <button class="btn-take-big" onclick="location.href='<?= $surveylink; ?>'">Start Survey Now →</button>
+            <a class="btn-take-big" href='<?= $surveylink; ?>' target="_blank">Start Survey Now →</a>
             <p class="cta-note">You must be <a href="#">logged in</a> to take surveys. By starting, you agree to our <a href="#">survey terms</a>. Reward credited within 24 hours.</p>
             <?php else: ?>
             <div class="not-eligible">
@@ -38,7 +46,7 @@
             <?php endif; ?>
         </div>
         <?php endif; endif; ?>
-        <?php if (isset($recentPosts)): ?>
+        <?php if (isset($recentPosts) && !$isSurveyPost): ?>
             <div class="sidebar-widget">
                 <div class="widget-title">Recent Posts</div>
                 <div class="popular-posts">
@@ -92,7 +100,7 @@
                         foreach ($categories as $category):
                             if($category['count'] > 0 && $category['slug'] !== 'blogs' && $category['slug'] !== 'uncategorized'):
                     ?>
-                        <a href="/blogs?category=<?= htmlspecialchars($category['slug']) ?>"
+                        <a href="/blogs?category=<?= htmlspecialchars($category['slug']) ?>" target='_blank'
                             class="tag">
                             <?= $category['name'] ?>
                         </a>

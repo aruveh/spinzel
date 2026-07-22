@@ -15,7 +15,7 @@ declare(strict_types=1);
         <?php if (!empty($post['featured_image'])): ?>
             <a href="/<?= htmlspecialchars($post['slug']) ?>">
                 <img
-                    src="<?= htmlspecialchars($post['featured_image']['sizes']['medium']['url'] ?? $post['featured_image']['url']) ?>"
+                    src="<?= htmlspecialchars($post['featured_image']['sizes']['medium_large']['url'] ?? $post['featured_image']['url']) ?>"
                     alt="<?= $post['title'] ?>">
             </a>
         <?php endif;?>
