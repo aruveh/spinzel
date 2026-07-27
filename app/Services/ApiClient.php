@@ -180,15 +180,50 @@ final class ApiClient
         }
 
         /**
+         * Server Error (5xx)
+         */
+        if ($status >= 500) {
+            throw new Exception(
+                'HTTP Error ' . $status
+            );
+        }
+
+        /**
+         * Empty Response or HTTP 204 No Content
+         */
+        if ($status === 204 || trim((string) $response) === '') {
+            if ($status >= 200 && $status < 300) {
+                return [];
+            }
+            if ($status >= 400 && $status < 500) {
+                return [
+                    'error' => 'HTTP Error ' . $status,
+                ];
+            }
+        }
+
+        /**
          * Decode JSON Response
          */
         $json = json_decode($response, true);
         if (json_last_error() !== JSON_ERROR_NONE) {
+            if ($status >= 400 && $status < 500) {
+                return [
+                    'error' => 'HTTP Error ' . $status,
+                    'message' => 'Invalid JSON response.',
+                ];
+            }
             throw new Exception(
                 'JSON Error: ' . json_last_error_msg()
             );
         }
         if (!is_array($json)) {
+            if ($status >= 400 && $status < 500) {
+                return [
+                    'error' => 'HTTP Error ' . $status,
+                    'message' => 'Invalid JSON response.',
+                ];
+            }
             throw new Exception('Invalid JSON response.');
         }
 
@@ -200,14 +235,6 @@ final class ApiClient
          */
         if ($status >= 400 && $status < 500) {
             return $json;
-        }
-        /**
-        * Server Error (5xx)
-        */
-        if ($status >= 500) {
-            throw new Exception(
-                'HTTP Error ' . $status
-            );
         }
 
         return $json;

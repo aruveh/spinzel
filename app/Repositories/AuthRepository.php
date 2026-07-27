@@ -42,13 +42,17 @@ final class AuthRepository
      */
     public function logout(string $token): ?array
     {
-        return $this->api->post(
-            '/auth/logout',
-            [],
-            [
-                'Authorization' => 'Bearer ' . $token,
-            ]
-        );
+        try {
+            return $this->api->post(
+                '/auth/logout',
+                [],
+                [
+                    'Authorization' => 'Bearer ' . $token,
+                ]
+            );
+        } catch (\Throwable $e) {
+            return null;
+        }
     }
 
     /**
