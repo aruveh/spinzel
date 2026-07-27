@@ -6582,7 +6582,8 @@ h1.page__title,
   background-color: var(--success-light);
 }
 
-.alert-error {
+.alert-error,
+.alert-danger {
   border-color: var(--error);
   color: var(--error-dark);
   background-color: var(--error-light);

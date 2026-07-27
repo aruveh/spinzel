@@ -59,7 +59,7 @@
             <?php endif; ?>
 
 			<form method="post" action="/profile">
-				<div class="signup-step">
+				<div id="login-panel" class="login-panel">
                     <div class="form-title">My Profile</div>
                     <p class="form-sub">Update your profile information</p>
 

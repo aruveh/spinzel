@@ -64,7 +64,7 @@
             <?php endif; ?>
 
 			<form method="post" action="/register">
-				<div class="signup-step">
+				<div id="login-panel" class="login-panel">
                     <div class="form-title">Create your account</div>
                     <p class="form-sub">Free forever. No credit card needed.</p>
 

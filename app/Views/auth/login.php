@@ -46,6 +46,12 @@
 				<a href="/login" class="auth-tab active">Log In</a>
 			</div>
 
+			<?php if (!empty($error)): ?>
+				<div class="alert alert-danger">
+					<?= htmlspecialchars($error) ?>
+				</div>
+			<?php endif; ?>
+
 			<?php if (!empty($success)): ?>
 				<div class="alert alert-success">
 					<?= htmlspecialchars($success) ?>
@@ -59,7 +65,7 @@
 					<p class="form-sub">New to Spinzel? <a href="/register">Create a free account →</a></p>
 					<div class="form-group">
 						<label class="form-label" for="username">Username</label>
-						<input class="form-input" id="username" name="username" type="text" placeholder="your username" required>
+						<input class="form-input" id="username" name="username" type="text" placeholder="your username" value="<?= htmlspecialchars($old['username'] ?? '') ?>" required>
 					</div>
 					<div class="form-group">
 						<label class="form-label" for="password">Password</label>

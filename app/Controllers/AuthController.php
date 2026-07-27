@@ -135,8 +135,19 @@ final class AuthController extends Controller
             $username === '' ||
             $password === ''
         ) {
-            header('Location: /login');
-            exit;
+            $this->render(
+                'auth/login',
+                [
+                    'error' => 'Username and password are required.',
+                    'old' => [
+                        'username' => $username,
+                    ],
+                ],
+                [
+                    'title' => 'Login',
+                ]
+            );
+            return;
         }
 
         $response = $this->auth->login([
@@ -145,8 +156,19 @@ final class AuthController extends Controller
         ]);
 
         if (empty($response['success'])) {
-            header('Location: /login');
-            exit;
+            $this->render(
+                'auth/login',
+                [
+                    'error' => $response['message'] ?? 'Invalid username or password.',
+                    'old' => [
+                        'username' => $username,
+                    ],
+                ],
+                [
+                    'title' => 'Login',
+                ]
+            );
+            return;
         }
 
         $_SESSION['auth'] = [
