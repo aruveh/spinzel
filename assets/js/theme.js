@@ -1,7 +1,7 @@
-(function(){
+(function () {
     const form = document.getElementById('newsletterForm');
     const submitButton = document.getElementById('newsLetterBtn');
-    if(!form) return;
+    if (!form) return;
     form.addEventListener('submit', async function (e) {
 
         e.preventDefault();
@@ -69,7 +69,7 @@
             app_id: "32507",
             ext_user_id: "user_1",
             secure_hash: "f6828b276977f34bd7f3062f47982d3ff82b8f1f7fb1462d942005f03b74e3ad"
-        },        
+        },
         style_config: {
             text_color: '#2b2b2b',
             survey_box: {
@@ -86,3 +86,27 @@
 
     window.config = config;
 })();
+
+function togglePwd() {
+    var i = document.querySelector('#step-1.active input[type=password],#login-panel input[type=password]');
+    if (i) i.type = i.type === 'password' ? 'text' : 'password';
+}
+
+function checkStrength(v) {
+    var fill = document.getElementById('strength-fill');
+    var score = 0;
+    var checks = {
+        len: v.length >= 8,
+        upper: /[A-Z]/.test(v),
+        num: /[0-9]/.test(v),
+        special: /[^A-Za-z0-9]/.test(v)
+    };
+    score = Object.values(checks).filter(Boolean).length;
+    var widths = ['0%', '25%', '50%', '75%', '100%'];
+    var colors = ['#EF4444', '#EF4444', '#F59E0B', '#10B981', '#059669'];
+    fill.style.width = widths[score];
+    fill.style.background = colors[score];
+    Object.keys(checks).forEach(k => {
+        document.getElementById('h-' + k.replace('len', 'len').replace('upper', 'upper').replace('num', 'num').replace('special', 'special'))?.classList.toggle('met', checks[k])
+    });
+}

@@ -70,7 +70,12 @@ abstract class Controller
         |--------------------------------------------------------------------------
         */
 
-        require __DIR__
+        if(str_contains($view, 'auth/')) {
+            require __DIR__
+            . '/../Views/layouts/auth.php';
+        } else {
+            require __DIR__
             . '/../Views/layouts/main.php';
+        }
     }
 }
