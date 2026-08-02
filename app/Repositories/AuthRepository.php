@@ -148,4 +148,14 @@ final class AuthRepository
         );
 
     }
+
+    /**
+     * Get Public Profile by Username
+     */
+    public function getPublicProfile(string $username): ?array
+    {
+        return $this->api->get(
+            '/users/' . urlencode($username)
+        );
+    }
 }

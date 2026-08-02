@@ -91,15 +91,53 @@ final class AuthController extends Controller
             $_SESSION['auth']['token']
         );
 
+        if($response && $response['data']) {
+            $user = $response['data'];
+
+            $this->render(
+                'auth/profile',
+                [
+                    'user' => $user,
+                ],
+                [
+                    'title' => 'My Profile',
+                ]
+            );
+        } else {
+            header('Location: /login');
+        }
+    }
+
+    /**
+     * Public User Profile Page
+     */
+    public function publicProfile(string $username): void
+    {
+        $response = $this->auth->getPublicProfile($username);
+
+        if (!$response || empty($response['data'])) {
+            http_response_code(404);
+            $this->render(
+                'errors/404',
+                [
+                    'error' => 'User "' . htmlspecialchars($username) . '" not found.',
+                ],
+                [
+                    'title' => 'User Not Found',
+                ]
+            );
+            return;
+        }
+
         $user = $response['data'];
 
         $this->render(
-            'auth/profile',
+            'profile/show',
             [
                 'user' => $user,
             ],
             [
-                'title' => 'My Profile',
+                'title' => ($user['display_name'] ?? $username) . ' - Profile',
             ]
         );
     }

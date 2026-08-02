@@ -129,6 +129,11 @@ $router->get('/profile', [
     'profile',
 ]);
 
+$router->get('/profile/{username}', [
+    AuthController::class,
+    'publicProfile',
+]);
+
 $router->post('/profile', [
     AuthController::class,
     'updateProfile',
