@@ -29,7 +29,7 @@ $currentYear = date('Y');
                 <li><a href="/market-research">Market Research</a></li>
                 <li><a href="/list-your-product">List Your Product</a></li>
                 <li><a href="/write-a-review">Write a Review</a></li>
-                <li><a href="/categories">Survey Categories</a></li>
+                <li><a href="/survey-categories">Survey Categories</a></li>
                 <li><a href="/paid-surveys">Business Pricing</a></li>
             </ul>
         </div>
@@ -49,10 +49,10 @@ $currentYear = date('Y');
             <ul class="footer-links">
                 <li><a href="/about-spinzel">About Spinzel</a></li>
                 <li><a href="/blogs">Blog</a></li>
-                <li><a href="/careers">Careers</a></li>
-                <li><a href="/press">Press</a></li>
+                <!-- <li><a href="/careers">Careers</a></li> -->
+                <!-- <li><a href="/press">Press</a></li> -->
                 <li><a href="/contact-spinzel">Contact Us</a></li>
-                <li><a href="/support-center">Support Center</a></li>
+                <!-- <li><a href="/support-center">Support Center</a></li> -->
             </ul>
         </div>
         </div>
