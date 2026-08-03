@@ -12,13 +12,13 @@
         const email = document.getElementById('newsletterEmail').value;
 
         const formData = new FormData();
-        formData.append('form_nonce', '286d0dd94f');
+        formData.append('form_type', 'newsletter');
         formData.append('email', email);
 
         try {
 
             const response = await fetch(
-                'https://www.spinzel.com/wp-json/metform/v1/entries/insert/2202',
+                'https://www.spinzel.com/wp-json/a9-forms/v1/submit',
                 {
                     method: 'POST',
                     body: formData
@@ -110,3 +110,126 @@ function checkStrength(v) {
         document.getElementById('h-' + k.replace('len', 'len').replace('upper', 'upper').replace('num', 'num').replace('special', 'special'))?.classList.toggle('met', checks[k])
     });
 }
+
+(function () {
+	'use strict';
+
+	// Prevent duplicate event listener registration if script is loaded more than once
+	if (window.__a9FormsInitialized) {
+		return;
+	}
+	window.__a9FormsInitialized = true;
+
+	document.addEventListener('submit', function (e) {
+		var form = e.target.closest('.a9-form');
+		var formWrapper = form.closest('.a9-form-container');
+		if (!form) return;
+
+		e.preventDefault();
+
+		// Guard against double submission on the form element
+		if (form.dataset.isSubmitting === 'true') {
+			return;
+		}
+
+		var submitBtn = form.querySelector('.a9-form-submit-btn');
+		var btnText = form.querySelector('.a9-btn-text');
+		var loader = form.querySelector('.a9-btn-loader');
+		var responseBox = formWrapper.querySelector('.a9-form-response');
+
+		// Basic client-side required field validation
+		var isValid = true;
+		var requiredInputs = form.querySelectorAll('[required]');
+
+		requiredInputs.forEach(function (input) {
+			if (!input.value.trim()) {
+				isValid = false;
+				input.style.borderColor = '#ef4444';
+			} else {
+				input.style.borderColor = '';
+			}
+		});
+
+		if (!isValid) {
+			if (responseBox) {
+				responseBox.className = 'a9-form-response a9-error';
+				responseBox.textContent = 'Please fill in all required fields.';
+				responseBox.style.display = 'block';
+			}
+			return;
+		}
+
+		// Lock submission state
+		form.dataset.isSubmitting = 'true';
+
+		// Clear previous response & disable submit button
+		if (responseBox) {
+			responseBox.className = 'a9-form-response';
+			responseBox.textContent = '';
+			responseBox.style.display = 'none';
+		}
+
+		if (submitBtn) {
+			submitBtn.disabled = true;
+		}
+		if (loader) {
+			loader.style.display = 'inline-block';
+		}
+
+		var formData = new FormData(form);
+
+		// Target Ajax URL from localized data or window fallback
+		var ajaxUrl = 'https://www.spinzel.com/wp-json/a9-forms/v1/submit';
+
+		fetch(ajaxUrl, {
+			method: 'POST',
+			body: formData,
+			headers: {
+				'Accept': 'application/json'
+			}
+		})
+			.then(function (res) {
+				return res.json();
+			})
+			.then(function (data) {
+				form.dataset.isSubmitting = 'false';
+				if (submitBtn) submitBtn.disabled = false;
+				if (loader) loader.style.display = 'none';
+
+				if (data && data.success) {
+					if (responseBox) {
+						responseBox.className = 'a9-form-response a9-success';
+						responseBox.textContent = data.message || 'Thank you! Your submission has been received.';
+						responseBox.style.display = 'block';
+					}
+					form.reset();
+				} else {
+					var errorMsg = (data && data.message) ? data.message : 'An error occurred. Please try again.';
+					if (responseBox) {
+						responseBox.className = 'a9-form-response a9-error';
+						responseBox.textContent = errorMsg;
+						responseBox.style.display = 'block';
+					}
+				}
+			})
+			.catch(function (err) {
+				form.dataset.isSubmitting = 'false';
+				if (submitBtn) submitBtn.disabled = false;
+				if (loader) loader.style.display = 'none';
+
+				if (responseBox) {
+					responseBox.className = 'a9-form-response a9-error';
+					responseBox.textContent = 'An unexpected error occurred. Please try again.';
+					responseBox.style.display = 'block';
+				}
+			});
+	});
+
+	// Remove red border on input change
+	document.addEventListener('input', function (e) {
+		if (e.target && e.target.closest && e.target.closest('.a9-form')) {
+			e.target.style.borderColor = '';
+		}
+	});
+
+})();
