@@ -8,6 +8,7 @@ use App\Controllers\HomeController;
 use App\Controllers\SearchController;
 use App\Controllers\SlugController;
 use App\Controllers\AuthController;
+use App\Controllers\SitemapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,17 @@ $router->get('/categories', [
 $router->get('/category/{slug}', [
     CategoryController::class,
     'show',
+]);
+
+/*
+|--------------------------------------------------------------------------
+| Sitemap
+|--------------------------------------------------------------------------
+*/
+
+$router->get('/sitemap.xml', [
+    SitemapController::class,
+    'index',
 ]);
 
 /*

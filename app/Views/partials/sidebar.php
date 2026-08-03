@@ -4,7 +4,7 @@
             
             if(isset($post)):
                 $adapt = $post['adaptation'];
-                $meta = $post['meta'];
+                $meta = isset($post['meta']) ? $post['meta'] : [];
                 $surveyCountry = $adapt['a9_country'];
                 $usersCountry = getVisitorCountryCode();
                 $surveylink = $adapt['a9_survey_link'];
