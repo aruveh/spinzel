@@ -91,6 +91,7 @@ final class SlugController
             $currentCategory = $postResponse['data']['categories'][0]['slug'];
             $recentResponse = $this->posts->all([
                 'per_page' => 5,
+                'category' => 'blogs',
             ]);
             $similarPosts = $this->posts->all([
                 'category' => $currentCategory,

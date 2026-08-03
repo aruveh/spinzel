@@ -40,8 +40,10 @@ final class BlogController extends Controller
             $filters['search'] = trim($_GET['search']);
         }
 
-        if (isset($_GET['category'])) {
+        if (isset($_GET['category']) && trim($_GET['category']) !== '') {
             $filters['category'] = trim($_GET['category']);
+        } else {
+            $filters['category'] = 'blogs';
         }
 
         if (isset($_GET['author'])) {
@@ -71,6 +73,7 @@ final class BlogController extends Controller
         $categories = $categoriesResponse['data'] ?? [];
         $recentResponse = $this->posts->all([
             'per_page' => 5,
+            'category' => 'blogs',
         ]);
         $recentPosts = $recentResponse['data'] ?? [];
 
