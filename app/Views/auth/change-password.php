@@ -34,7 +34,7 @@
 		<form method="post" action="/change-password">
 			<div id="login-panel" class="login-panel active">
 				<div class="form-title">Change Password</div>
-				<p class="form-sub">Enter your email address and we'll send you a link to reset your password.</p>
+				<p class="form-sub">Update your password below to keep your account secure.</p>
 
 				<div class="form-group">
 					<label class="form-label" for="email">Current Password</label>

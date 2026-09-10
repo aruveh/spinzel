@@ -535,32 +535,27 @@ final class AuthController extends Controller
         );
 
         if (empty($response['success'])) {
-
             $this->render(
-
                 'auth/change-password',
-
                 [
-
-                    'error' => 'Unable to change your password.',
-
+                    'error' => $response['message'] ?? $response['error'] ?? 'Unable to change your password.',
                 ],
-
                 [
-
                     'title' => 'Change Password',
-
                 ]
-
             );
-
             return;
-
         }
 
-        header('Location: /profile');
-
-        exit;
+        $this->render(
+            'auth/change-password',
+            [
+                'success' => $response['data']['message'] ?? 'Password changed successfully.',
+            ],
+            [
+                'title' => 'Change Password',
+            ]
+        );
     }
 
     /**
