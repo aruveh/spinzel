@@ -68,19 +68,6 @@
                     <div class="form-title">Create your account</div>
                     <p class="form-sub">Free forever. No credit card needed.</p>
 
-					<div class="form-group">
-						<label class="form-label" for="display_name">Display Name</label>
-						<input
-                            class="form-input"
-                            id="display_name"
-                            name="display_name"
-                            type="text"
-                            placeholder="Enter name"
-                            value="<?= htmlspecialchars($old['display_name'] ?? '') ?>"
-                            required
-                        />
-					</div>
-
                     <div class="form-group">
 						<label class="form-label" for="username">Username</label>
 

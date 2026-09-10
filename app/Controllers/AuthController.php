@@ -223,13 +223,8 @@ final class AuthController extends Controller
      */
     public function register(): void
     {
-        
         $username = trim(
             $_POST['username'] ?? ''
-        );
-
-        $displayName = trim(
-            $_POST['display_name'] ?? ''
         );
 
         $email = trim(
@@ -242,18 +237,15 @@ final class AuthController extends Controller
 
         if (
             $username === '' ||
-            $displayName === '' ||
             $email === '' ||
             $password === ''
         ) {
             header('Location: /register');
             exit;
-
         }
 
         $response = $this->auth->register([
             'username' => $username,
-            'display_name' => $displayName,
             'email' => $email,
             'password' => $password,
         ]);
@@ -265,7 +257,6 @@ final class AuthController extends Controller
                     'error' => $response['message'] ?? 'Registration failed.',
                     'old' => [
                         'username' => $username,
-                        'display_name' => $displayName,
                         'email' => $email,
                     ],
                 ],
