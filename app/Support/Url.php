@@ -11,10 +11,8 @@ final class Url
      */
     public static function base(): string
     {
-        return rtrim(
-            $_ENV['APP_URL'] ?? '',
-            '/'
-        );
+        $url = $_ENV['APP_URL'] ?? $_SERVER['APP_URL'] ?? getenv('APP_URL') ?: Config::get('app.url');
+        return rtrim((string) $url, '/');
     }
 
     /**
