@@ -2548,6 +2548,20 @@ input[type="range"] {
   margin-bottom: 24px;
 }
 
+.details-card p a,
+.details-card div a,
+.details-card span a {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.details-card p a:hover,
+.details-card div a:hover,
+.details-card span a:hover {
+  color: var(--navy);
+}
+
 .details-card p+h2,
 .details-card p+h3,
 .details-card p+h4,
