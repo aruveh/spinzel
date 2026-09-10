@@ -21,8 +21,8 @@ $menu = $navigation['primary'] ?? null;
                 </form>
             <?php else: ?>
                 <a href="/login" class="btn-ghost">Log In</a>
-                <a href="/register" class="btn-primary">Sign Up Free</a
-            <?php endif; ?>>
+                <a href="/register" class="btn-primary">Sign Up Free</a>
+            <?php endif; ?>
         </div>
     </div>
 </header>
