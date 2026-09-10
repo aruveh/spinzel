@@ -86,10 +86,7 @@ Thumbs.db
 *.sln
 
 
+/vendor/
 /wp/
-/wp/wp-content/plugin
-Milestones.md
-/frontend
 
-/fe-php/vendor
-vendor/
+.env
