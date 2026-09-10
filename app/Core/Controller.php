@@ -70,7 +70,7 @@ abstract class Controller
         |--------------------------------------------------------------------------
         */
 
-        if(str_contains($view, 'auth/')) {
+        if(str_contains($view, 'auth/login') || str_contains($view, 'auth/register')) {
             require __DIR__
             . '/../Views/layouts/auth.php';
         } else {

@@ -87,7 +87,6 @@ Thumbs.db
 
 
 /vendor/
-/wp/
 
 .env
 *.code-workspace
