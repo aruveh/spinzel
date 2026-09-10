@@ -198,7 +198,6 @@ ol {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-left: auto;
   flex-shrink: 0;
 }
 
@@ -6596,12 +6595,16 @@ h1.page__title,
 }
 
 @media(max-width:768px) {
-  .auth-page {
+  .auth-page, .profile-page, .profile-page .form-row {
     grid-template-columns: 1fr
   }
 
   .auth-left > *:not(.auth-logo) {
     display: none
+  }
+
+  .profile-page aside {
+    order: 2;
   }
 
   .auth-left .auth-logo {

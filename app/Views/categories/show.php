@@ -83,9 +83,6 @@ declare(strict_types=1);
     ?>
 
     <?php require __DIR__ . '/../partials/footer.php'; ?>
-        <script type="text/javascript">
-    console.log('fe-php/app/Views/categories/show.php')
-</script>
 </body>
 
 </html>

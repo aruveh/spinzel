@@ -15,10 +15,7 @@
     ?>
 
     <?php require __DIR__ . '/../partials/footer.php'; ?>
-
-    <script type="text/javascript">
-        console.log('fe-php/app/Views/layouts/main.php')
-    </script>
+    
     <script src="/assets/js/theme.js"></script>
 </body>
 </html>

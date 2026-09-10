@@ -171,10 +171,7 @@
     <?php endif; ?>
 
     <?php require __DIR__ . '/../partials/footer.php'; ?>
-
-    <script type="text/javascript">
-        console.log('fe-php/app/Views/blogs/show.php')
-    </script>
+    
     <script src="/assets/js/theme.js" type="text/javascript"></script>
 </body>
 
