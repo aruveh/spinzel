@@ -130,7 +130,14 @@ ol {
   flex: 1;
 }
 
-.main-nav > a {
+.main-nav .header-actions {
+  display: none;
+}
+.main-nav .header-actions a {
+  padding: 8px 14px;
+}
+
+.main-nav a {
   color: rgba(255, 255, 255, 0.72);
   font-size: 14px;
   font-weight: 500;
@@ -4816,6 +4823,16 @@ input[type="range"] {
 .form-input::placeholder,
 .form-textarea::placeholder {
   color: var(--gray-300);
+}
+
+.form-input:disabled,
+.form-input[readonly],
+.form-textarea:disabled,
+.form-textarea[readonly] {
+  background-color: var(--gray-50, #f9fafb);
+  color: var(--gray-700, #374151);
+  cursor: default;
+  opacity: 0.9;
 }
 
 .form-select {
