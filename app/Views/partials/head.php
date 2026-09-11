@@ -1,10 +1,10 @@
 <?php
     declare(strict_types=1);
 
-    $pageTitle ??= 'Spinzel';
-    $pageDescription ??= '';
-    $pageKeywords ??= '';
-    $pageView ??= '';
+    $pageTitle = (!empty($pageTitle) && trim((string) $pageTitle) !== '') ? $pageTitle : 'Spinzel';
+    $pageDescription = (!empty($pageDescription) && trim((string) $pageDescription) !== '') ? trim(strip_tags((string) $pageDescription)) : '';
+    $pageKeywords = (!empty($pageKeywords) && trim((string) $pageKeywords) !== '') ? $pageKeywords : '';
+    $pageView = !empty($pageView) ? $pageView : '';
 ?>
 <!DOCTYPE html>
 <html lang="en">

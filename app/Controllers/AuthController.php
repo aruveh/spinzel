@@ -91,13 +91,19 @@ final class AuthController extends Controller
             $_SESSION['auth']['token']
         );
 
-        if($response && $response['data']) {
+        $success = $_SESSION['flash_success'] ?? null;
+        $error = $_SESSION['flash_error'] ?? null;
+        unset($_SESSION['flash_success'], $_SESSION['flash_error']);
+
+        if ($response && $response['data']) {
             $user = $response['data'];
 
             $this->render(
                 'auth/profile',
                 [
                     'user' => $user,
+                    'success' => $success,
+                    'error' => $error,
                 ],
                 [
                     'title' => 'My Profile',
@@ -463,8 +469,13 @@ final class AuthController extends Controller
             ]
         );
 
-        if (!empty($response['data'])) {
-            $_SESSION['auth']['user'] = $response['data'];
+        if (!empty($response['data']) || !empty($response['success'])) {
+            if (!empty($response['data'])) {
+                $_SESSION['auth']['user'] = $response['data'];
+            }
+            $_SESSION['flash_success'] = 'Profile updated successfully.';
+        } else {
+            $_SESSION['flash_error'] = $response['message'] ?? $response['error'] ?? 'Unable to update profile.';
         }
 
         header('Location: /profile');

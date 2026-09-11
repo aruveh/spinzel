@@ -74,6 +74,9 @@ final class SlugController
 
             $page = $pageResponse['data'];
 
+            $pageTitle = !empty($page['seo']['title']) ? $page['seo']['title'] : (!empty($page['title']) ? $page['title'] . ' - Spinzel' : 'Spinzel');
+            $pageDescription = !empty($page['seo']['description']) ? $page['seo']['description'] : (!empty($page['excerpt']) ? strip_tags((string) $page['excerpt']) : '');
+
             require __DIR__ . '/../Views/pages/show.php';
 
             return;
@@ -88,7 +91,7 @@ final class SlugController
         $postResponse = $this->posts->findBySlug($slug);
 
         if ($postResponse !== null) {
-            $currentCategory = $postResponse['data']['categories'][0]['slug'];
+            $currentCategory = $postResponse['data']['categories'][0]['slug'] ?? 'blogs';
             $recentResponse = $this->posts->all([
                 'per_page' => 5,
                 'category' => 'blogs',
@@ -108,6 +111,9 @@ final class SlugController
             $similarPosts = $similarPosts['data'] ?? [];
 
             $categories = $categoriesResponse['data'] ?? [];
+
+            $pageTitle = !empty($post['seo']['title']) ? $post['seo']['title'] : (!empty($post['title']) ? $post['title'] . ' - Spinzel' : 'Spinzel');
+            $pageDescription = !empty($post['seo']['description']) ? $post['seo']['description'] : (!empty($post['excerpt']) ? strip_tags((string) $post['excerpt']) : '');
 
             require __DIR__ . '/../Views/blogs/show.php';
 

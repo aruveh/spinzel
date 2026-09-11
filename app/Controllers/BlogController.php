@@ -120,8 +120,8 @@ final class BlogController extends Controller
                 'post' => $post,
             ],
             [
-                'title'       => $post['title'] ?? '',
-                'description' => $post['excerpt'] ?? '',
+                'title'       => !empty($post['seo']['title']) ? $post['seo']['title'] : (!empty($post['title']) ? $post['title'] . ' - Spinzel' : 'Spinzel'),
+                'description' => !empty($post['seo']['description']) ? $post['seo']['description'] : (!empty($post['excerpt']) ? strip_tags((string) $post['excerpt']) : ''),
                 'keywords'    => '',
             ]
         );
