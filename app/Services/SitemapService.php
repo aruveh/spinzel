@@ -112,7 +112,7 @@ final class SitemapService
                 continue;
             }
 
-            $loc = $baseUrl . '/category/' . trim($slug, '/');
+            $loc = $baseUrl . '/' . trim($slug, '/');
             $addUrl($loc, null, 'weekly', '0.7');
         }
 
