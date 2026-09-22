@@ -19,6 +19,24 @@
         $canonicalPath = ($cleanPath === '') ? '/' : $cleanPath . '/';
         $canonicalUrl = $baseUrl . $canonicalPath;
     }
+
+    if (!empty($pageImage)) {
+        $shareImage = (string) $pageImage;
+    } elseif (!empty($post['featured_image'])) {
+        $shareImage = is_array($post['featured_image'])
+            ? ($post['featured_image']['sizes']['large']['url'] ?? $post['featured_image']['url'] ?? '')
+            : (string) $post['featured_image'];
+    } elseif (!empty($page['featured_image'])) {
+        $shareImage = is_array($page['featured_image'])
+            ? ($page['featured_image']['sizes']['large']['url'] ?? $page['featured_image']['url'] ?? '')
+            : (string) $page['featured_image'];
+    } else {
+        $shareImage = $baseUrl . '/assets/images/spinzel-white-logo.png';
+    }
+
+    if (!empty($shareImage) && !str_starts_with($shareImage, 'http://') && !str_starts_with($shareImage, 'https://')) {
+        $shareImage = $baseUrl . '/' . ltrim($shareImage, '/');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,6 +50,27 @@
     <?php if (!empty($pageDescription)): ?>
     <meta name="description" content="<?= htmlspecialchars($pageDescription) ?>">
     <?php endif; ?>
+
+    <!-- Static Open Graph & Twitter Tags -->
+    <meta property="og:site_name" content="Spinzel">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Dynamic Open Graph Tags -->
+    <meta property="og:title" content="<?= htmlspecialchars($pageTitle) ?>">
+    <?php if (!empty($pageDescription)): ?>
+    <meta property="og:description" content="<?= htmlspecialchars($pageDescription) ?>">
+    <?php endif; ?>
+    <meta property="og:url" content="<?= htmlspecialchars($canonicalUrl) ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($shareImage) ?>">
+
+    <!-- Dynamic Twitter Tags -->
+    <meta name="twitter:title" content="<?= htmlspecialchars($pageTitle) ?>">
+    <?php if (!empty($pageDescription)): ?>
+    <meta name="twitter:description" content="<?= htmlspecialchars($pageDescription) ?>">
+    <?php endif; ?>
+    <meta name="twitter:image" content="<?= htmlspecialchars($shareImage) ?>">
     
     <link rel="stylesheet" href="/assets/css/styles.css">
 
