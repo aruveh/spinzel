@@ -53,8 +53,8 @@
 	<div class="auth-right">
 		<div class="auth-form-wrap">
 			<div class="auth-tabs">
-				<a href="/register" class="auth-tab active">Create Account</a>
-				<a href="/login" class="auth-tab">Log In</a>
+				<a href="/register/" class="auth-tab active">Create Account</a>
+				<a href="/login/" class="auth-tab">Log In</a>
 			</div>
 
             <?php if (!empty($error)): ?>
@@ -63,7 +63,7 @@
                 </div>
             <?php endif; ?>
 
-			<form method="post" action="/register">
+			<form method="post" action="/register/">
 				<div id="login-panel" class="login-panel">
                     <div class="form-title">Create your account</div>
                     <p class="form-sub">Free forever. No credit card needed.</p>
@@ -121,7 +121,7 @@
                         </div>
                     </div>
 					<button type="submit" class="btn-submit">Create Account →</button>
-                    <div class="form-footer">Already have an account? <a href="/login">Log in →</a>
+                    <div class="form-footer">Already have an account? <a href="/login/">Log in →</a>
 				</div>
     		</form>
 		</div>

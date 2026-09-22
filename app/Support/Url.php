@@ -25,7 +25,7 @@ final class Url
      *
      * becomes
      *
-     * /about
+     * /about/
      */
     public static function frontend(string $url): string
     {
@@ -34,15 +34,15 @@ final class Url
             PHP_URL_PATH
         );
 
-        if (!$path) {
+        if (!$path || $path === '/') {
             return '/';
         }
 
-        $path = rtrim($path, '/');
+        if (preg_match('#\.[a-zA-Z0-9]+$#', $path)) {
+            return $path;
+        }
 
-        return $path === ''
-            ? '/'
-            : $path;
+        return rtrim($path, '/') . '/';
     }
 
     /**

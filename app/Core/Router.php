@@ -38,12 +38,31 @@ final class Router
     {
         $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 
-        $uri = parse_url(
+        $rawPath = parse_url(
             $_SERVER['REQUEST_URI'] ?? '/',
             PHP_URL_PATH
         );
+        $path = (string) $rawPath;
 
-        $uri = rtrim((string) $uri, '/');
+        /**
+         * -----------------------------------------------------
+         * 301 Redirect to Trailing Slash for Page URLs
+         * -----------------------------------------------------
+         */
+        if (
+            ($method === 'GET' || $method === 'HEAD') &&
+            $path !== '/' &&
+            substr($path, -1) !== '/' &&
+            !preg_match('#\.[a-zA-Z0-9]+$#', $path)
+        ) {
+            $queryString = $_SERVER['QUERY_STRING'] ?? '';
+            $target = $path . '/' . ($queryString !== '' ? '?' . $queryString : '');
+
+            header('Location: ' . $target, true, 301);
+            exit;
+        }
+
+        $uri = rtrim($path, '/');
 
         if ($uri === '') {
             $uri = '/';

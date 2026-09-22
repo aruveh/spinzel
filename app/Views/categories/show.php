@@ -1,19 +1,9 @@
 <?php
-
 declare(strict_types=1);
 
+$pageTitle = $category['name'] ?? 'Category';
+require __DIR__ . '/../partials/head.php';
 ?>
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <title><?= htmlspecialchars($category['name']) ?></title>
-
-</head>
 
 <body>
 

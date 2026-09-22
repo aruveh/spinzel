@@ -47,7 +47,7 @@
                 </div>
             <?php endif; ?>
 
-			<form method="post" action="/reset-password">
+			<form method="post" action="/reset-password/">
 				<div id="login-panel" class="login-panel active">
 					<div class="form-title">Reset Password</div>
 					<p class="form-sub">Enter your new password and we'll send you a link to reset your password.</p>

@@ -5,13 +5,13 @@
 ?>
 <?php if (isset($categories)): ?>
     <div class="categories-bar">
-        <a href="/blogs" class="cat-tab <?= !$currentCategory ? 'active' : '' ?>">All Posts</a>
+        <a href="/blogs/" class="cat-tab <?= !$currentCategory ? 'active' : '' ?>">All Posts</a>
         <?php
             foreach ($categories as $category):
                 if($category['count'] > 0 && $category['slug'] !== 'surveys' && $category['slug'] !== 'blogs' && $category['slug'] !== 'uncategorized'):
                     // echo $category;
         ?>
-            <a href="/blogs?category=<?= htmlspecialchars($category['slug']) ?>"
+            <a href="/blogs/?category=<?= htmlspecialchars($category['slug']) ?>"
                 class="cat-tab <?= $currentCategory === $category['slug'] ? 'active' : ''; ?>">
                 <?= $category['name'] ?>
             </a>

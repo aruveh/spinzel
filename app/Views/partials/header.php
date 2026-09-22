@@ -15,13 +15,13 @@ $menu = $navigation['primary'] ?? null;
         
         <div class="header-actions">
             <?php if (isset($_SESSION['auth'])): ?>
-                <a href="/profile" class="btn-primary">Profile</a>
-                <form method="post" action="/logout">
+                <a href="/profile/" class="btn-primary">Profile</a>
+                <form method="post" action="/logout/">
                     <button type="submit" class="btn-ghost">Logout</button>
                 </form>
             <?php else: ?>
-                <a href="/login" class="btn-ghost">Log In</a>
-                <a href="/register" class="btn-primary">Sign Up Free</a>
+                <a href="/login/" class="btn-ghost">Log In</a>
+                <a href="/register/" class="btn-primary">Sign Up Free</a>
             <?php endif; ?>
         </div>
     </div>

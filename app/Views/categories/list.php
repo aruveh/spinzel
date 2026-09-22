@@ -1,23 +1,9 @@
 <?php
-
 declare(strict_types=1);
 
+$pageTitle = 'Categories';
+require __DIR__ . '/../partials/head.php';
 ?>
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-
-<title>
-
-Categories
-
-</title>
-
-</head>
 
 <body>
 

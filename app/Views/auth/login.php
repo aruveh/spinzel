@@ -42,8 +42,8 @@
 	<div class="auth-right">
 		<div class="auth-form-wrap">
 			<div class="auth-tabs">
-				<a href="/register" class="auth-tab">Create Account</a>
-				<a href="/login" class="auth-tab active">Log In</a>
+				<a href="/register/" class="auth-tab">Create Account</a>
+				<a href="/login/" class="auth-tab active">Log In</a>
 			</div>
 
 			<?php if (!empty($error)): ?>
@@ -58,11 +58,11 @@
 				</div>
 			<?php endif; ?>
 
-			<form method="post" action="/login">
+			<form method="post" action="/login/">
 				<!-- LOGIN PANEL -->
 				<div id="login-panel" class="login-panel active">
 					<div class="form-title">Welcome back</div>
-					<p class="form-sub">New to Spinzel? <a href="/register">Create a free account →</a></p>
+					<p class="form-sub">New to Spinzel? <a href="/register/">Create a free account →</a></p>
 					<div class="form-group">
 						<label class="form-label" for="username">Username</label>
 						<input class="form-input" id="username" name="username" type="text" placeholder="your username" value="<?= htmlspecialchars($old['username'] ?? '') ?>" required>
@@ -74,9 +74,9 @@
 							<span class="input-icon" onclick="togglePwd()">👁</span>
 						</div>
 					</div>
-					<div class="form-forgot"><a href="/forgot-password">Forgot password?</a></div>
+					<div class="form-forgot"><a href="/forgot-password/">Forgot password?</a></div>
 					<button type="submit" class="btn-submit">Log In →</button>
-					<div class="form-footer">Don't have an account? <a href="/register">Sign up free →</a></div>
+					<div class="form-footer">Don't have an account? <a href="/register/">Sign up free →</a></div>
 				</div>
     		</form>
 		</div>

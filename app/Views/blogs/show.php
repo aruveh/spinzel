@@ -46,7 +46,7 @@
         <div class="breadcrumb-bar">
             <div class="breadcrumb-inner">
                 <a href="/">Home</a><span class="sep">›</span>
-                <a href="/blogs">Blog</a><span class="sep">›</span>
+                <a href="/blogs/">Blog</a><span class="sep">›</span>
                 <span class="current"><?= $post['title'] ?></span>
             </div>
         </div>

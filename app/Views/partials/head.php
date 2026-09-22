@@ -5,6 +5,20 @@
     $pageDescription = (!empty($pageDescription) && trim((string) $pageDescription) !== '') ? trim(strip_tags((string) $pageDescription)) : '';
     $pageKeywords = (!empty($pageKeywords) && trim((string) $pageKeywords) !== '') ? $pageKeywords : '';
     $pageView = !empty($pageView) ? $pageView : '';
+
+    $baseUrl = \App\Support\Url::base();
+    if (empty($baseUrl)) {
+        $baseUrl = 'https://www.spinzel.com';
+    }
+
+    if (!empty($pageCanonical)) {
+        $canonicalUrl = $pageCanonical;
+    } else {
+        $requestUriPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+        $cleanPath = rtrim((string) $requestUriPath, '/');
+        $canonicalPath = ($cleanPath === '') ? '/' : $cleanPath . '/';
+        $canonicalUrl = $baseUrl . $canonicalPath;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +26,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="canonical" href="<?= htmlspecialchars($canonicalUrl) ?>">
 
     <title><?= htmlspecialchars($pageTitle) ?></title>
     <?php if (!empty($pageDescription)): ?>

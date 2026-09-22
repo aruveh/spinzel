@@ -4,8 +4,8 @@
             <h2 class="sidebar-title">Dashboard</h2>
             <nav>
                 <ul class="filter-group">
-                    <li class="cat-item"><a href="/profile" class="sidebar-link">My Profile</a></li>
-                    <li class="cat-item selected"><a href="/change-password" class="sidebar-link">Change Password</a></li>
+                    <li class="cat-item"><a href="/profile/" class="sidebar-link">My Profile</a></li>
+                    <li class="cat-item selected"><a href="/change-password/" class="sidebar-link">Change Password</a></li>
                 </ul>
             </nav>
         </div>
@@ -31,7 +31,7 @@
 			</div>
 		<?php endif; ?>
 
-		<form method="post" action="/change-password">
+		<form method="post" action="/change-password/">
 			<div id="login-panel" class="login-panel active">
 				<div class="form-title">Change Password</div>
 				<p class="form-sub">Update your password below to keep your account secure.</p>

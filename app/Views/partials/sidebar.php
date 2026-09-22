@@ -41,7 +41,7 @@
             <div class="not-eligible">
                 <div class="not-elig-title">You may not be eligible</div>
                 <div class="not-elig-sub">This survey targets <strong><?= $adapt['a9_age_group'] ?></strong> age groups in the <strong><?= $surveyCountry; ?></strong>. Try other surveys that match your profile.</div>
-                <button class="btn-browse" onclick="location.href='/browse-surveys'">Browse All Surveys →</button>
+                <button class="btn-browse" onclick="location.href='/browse-surveys/'">Browse All Surveys →</button>
             </div>
             <?php endif; ?>
         </div>
@@ -57,7 +57,7 @@
                             <span class="pop-num"><?= str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) ?></span>
                             <div>
                                 <div class="pop-title">
-                                    <a href="/<?= htmlspecialchars($post['slug']) ?>"><?= $post['title'] ?></a>
+                                    <a href="/<?= htmlspecialchars($post['slug']) ?>/"><?= $post['title'] ?></a>
                                 </div>
                                 <div class="pop-meta">⏱ 10 min · 18.2K views</div>
                             </div>
@@ -100,7 +100,7 @@
                         foreach ($categories as $category):
                             if($category['count'] > 0 && $category['slug'] !== 'blogs' && $category['slug'] !== 'uncategorized'):
                     ?>
-                        <a href="/blogs?category=<?= htmlspecialchars($category['slug']) ?>" target='_blank'
+                        <a href="/blogs/?category=<?= htmlspecialchars($category['slug']) ?>" target='_blank'
                             class="tag">
                             <?= $category['name'] ?>
                         </a>

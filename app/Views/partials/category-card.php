@@ -16,7 +16,7 @@ declare(strict_types=1);
 
         <p>
 
-            <a href="/category/<?= htmlspecialchars($category['slug']) ?>">
+            <a href="/category/<?= htmlspecialchars($category['slug']) ?>/">
 
                 <img
                     src="<?= htmlspecialchars($category['image']['sizes']['medium']['url'] ?? $category['image']['url']) ?>"
@@ -31,7 +31,7 @@ declare(strict_types=1);
 
     <h3>
 
-        <a href="/category/<?= htmlspecialchars($category['slug']) ?>">
+        <a href="/category/<?= htmlspecialchars($category['slug']) ?>/">
 
             <?= htmlspecialchars($category['name']) ?>
 
