@@ -88,7 +88,7 @@ final class BlogController extends Controller
             ],
             [
                 'title'       => 'Blogs',
-                'description' => 'Browse the latest blog articles.',
+                'description' => 'Read the Spinzel blog for tips on paid surveys, market research, finance, and lifestyle. Fresh articles to help you make the most of your time online today.',
                 'keywords'    => 'blogs',
             ]
         );

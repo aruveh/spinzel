@@ -1,1 +1,1 @@
-<?= $page['content'] ?>
+<?= \App\Support\Url::cleanContent($page['content'] ?? '') ?>

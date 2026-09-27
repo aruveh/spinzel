@@ -59,10 +59,10 @@
                         <?php if (count($post['tags']) || count($post['categories'])): ?>
                             <div class="survey-badges">
                                 <?php foreach ($post['tags'] as $tag): ?>
-                                    <a href="/blogs?search=<?= $tag['name'] ?>" class="s-badge sb-cat"><?= $tag['name'] ?></a>
+                                    <a href="/blogs/?search=<?= $tag['name'] ?>" class="s-badge sb-cat"><?= $tag['name'] ?></a>
                                 <?php endforeach; ?>
                                 <?php foreach ($post['categories'] as $category): ?>
-                                    <a href="/blogs?search=<?= $category['name'] ?>" class="s-badge sb-urgent"><?= $category['name'] ?></a>
+                                    <a href="/blogs/?search=<?= $category['name'] ?>" class="s-badge sb-urgent"><?= $category['name'] ?></a>
                                 <?php endforeach; ?>
                             </div>
                         <?php endif; /*?>
@@ -169,7 +169,7 @@
                 </div>
 
                 <div class="details-card">
-                    <?= $post['content'] ?>
+                    <?= \App\Support\Url::cleanContent($post['content']) ?>
                 </div>
 
                 <?php require __DIR__ . '/../partials/similar-posts.php'; ?>
