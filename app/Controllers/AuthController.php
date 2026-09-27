@@ -25,7 +25,7 @@ final class AuthController extends Controller
             'auth/login',
             [],
             [
-                'title' => 'Login',
+                'title' => 'Spinzel Login - Access Your Account',
             ]
         );
     }
@@ -39,7 +39,7 @@ final class AuthController extends Controller
             'auth/register',
             [],
             [
-                'title' => 'Register',
+                'title' => 'Sign Up for Spinzel - Create a Free Account',
             ]
         );
     }
@@ -53,7 +53,7 @@ final class AuthController extends Controller
             'auth/forgot-password',
             [],
             [
-                'title' => 'Forgot Password',
+                'title' => 'Forgot Password? Reset Your Spinzel Account',
             ]
         );
     }
