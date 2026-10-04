@@ -233,3 +233,25 @@ function checkStrength(v) {
 	});
 
 })();
+
+(function () {
+    function initReviewStars() {
+        const elements = document.querySelectorAll('.survey-platform .a9-age-group');
+        elements.forEach(function (el) {
+            if (!el.querySelector('.a9-review-stars')) {
+                const span = document.createElement('span');
+                span.className = 'a9-review-stars';
+                span.style.color = '#ffb400';
+                span.style.marginRight = '4px';
+                span.textContent = '★★★★☆ ';
+                el.insertBefore(span, el.firstChild);
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initReviewStars);
+    } else {
+        initReviewStars();
+    }
+})();

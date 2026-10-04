@@ -28,7 +28,6 @@ $currentYear = date('Y');
             <ul class="footer-links">
                 <li><a href="/market-research/">Market Research</a></li>
                 <li><a href="/list-your-product/">List Your Product</a></li>
-                <li><a href="/write-a-review/">Write a Review</a></li>
                 <li><a href="/survey-categories/">Survey Categories</a></li>
                 <li><a href="/paid-surveys/">Business Pricing</a></li>
             </ul>
@@ -65,3 +64,5 @@ $currentYear = date('Y');
         </div>
     </div>
 </footer>
+
+<script src="/assets/js/theme.js" type="text/javascript"></script>

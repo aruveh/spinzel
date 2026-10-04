@@ -2720,6 +2720,10 @@ input[type="range"] {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.similar-grid.four-grids {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .sim-card,
 .similar-grid li,
 #fullscreen .css-zbozxw {

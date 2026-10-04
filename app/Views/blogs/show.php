@@ -180,8 +180,6 @@
     <?php endif; ?>
 
     <?php require __DIR__ . '/../partials/footer.php'; ?>
-
-    <script src="/assets/js/theme.js" type="text/javascript"></script>
 </body>
 
 </html>
