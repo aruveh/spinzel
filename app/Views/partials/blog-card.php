@@ -10,10 +10,11 @@ declare(strict_types=1);
 
 ?>
 <?php if (!empty($post)): ?>
+    <?php $postUrl = \App\Support\Url::post($post); ?>
     <div class="post-card">
         <div class="post-image pi-2">
             <?php if (!empty($post['featured_image'])): ?>
-                <a href="/<?= htmlspecialchars($post['slug']) ?>/">
+                <a href="<?= htmlspecialchars($postUrl) ?>">
                     <img
                         src="<?= htmlspecialchars($post['featured_image']['sizes']['medium']['url'] ?? $post['featured_image']['url']) ?>"
                         alt="<?= $post['featured_image']['alt'] ?>">
@@ -24,14 +25,14 @@ declare(strict_types=1);
             <?php // <span class="post-cat-pill pc-earn">💰 Earning Tips</span> 
             ?>
             <div class="post-title">
-                <a href="/<?= htmlspecialchars($post['slug']) ?>/"><?= $post['title'] ?></a>
+                <a href="<?= htmlspecialchars($postUrl) ?>"><?= $post['title'] ?></a>
             </div>
             <?= !empty($post['excerpt']) ? '<p class="post-excerpt">' . $post['excerpt'] . '</p>' : '' ?>
             <div class="post-footer">
                 <div class="post-author">
                     ⏱ <?= $post['reading_time']['formatted'] ?><?= $post['views']['count'] > 999 ? ' · ' . $post['views']['formatted'] . ' views' : '' ?>
                 </div>
-                <a href="/<?= htmlspecialchars($post['slug']) ?>/" class="post-read-more">Read →</a>
+                <a href="<?= htmlspecialchars($postUrl) ?>" class="post-read-more">Read →</a>
             </div>
         </div>
     </div>

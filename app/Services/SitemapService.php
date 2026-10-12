@@ -123,7 +123,7 @@ final class SitemapService
                 continue;
             }
 
-            $loc = $baseUrl . '/' . trim($slug, '/');
+            $loc = Url::postUrl($post, true);
             $lastmod = $post['published']['datetime'] ?? null;
             $addUrl($loc, $lastmod, 'weekly', '0.7');
         }

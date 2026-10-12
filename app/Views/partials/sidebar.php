@@ -57,7 +57,7 @@
                             <span class="pop-num"><?= str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) ?></span>
                             <div>
                                 <div class="pop-title">
-                                    <a href="/<?= htmlspecialchars($post['slug']) ?>/"><?= $post['title'] ?></a>
+                                    <a href="<?= htmlspecialchars(\App\Support\Url::post($post)) ?>"><?= $post['title'] ?></a>
                                 </div>
                                 <div class="pop-meta">⏱ 10 min · 18.2K views</div>
                             </div>

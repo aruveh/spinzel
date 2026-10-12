@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\Core\Controller;
 use App\Repositories\PostRepository;
 use App\Repositories\CategoryRepository;
+use App\Support\Url;
 
 final class BlogController extends Controller
 {
@@ -113,6 +114,11 @@ final class BlogController extends Controller
         }
 
         $post = $response['data'];
+
+        if (Url::isPlatformPost($post)) {
+            header('Location: ' . Url::postUrl($post, true), true, 301);
+            exit;
+        }
 
         $this->render(
             'blogs/show',

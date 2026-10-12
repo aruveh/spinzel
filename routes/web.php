@@ -7,6 +7,7 @@ use App\Controllers\CategoryController;
 use App\Controllers\HomeController;
 use App\Controllers\SearchController;
 use App\Controllers\SlugController;
+use App\Controllers\ReviewController;
 use App\Controllers\AuthController;
 use App\Controllers\SitemapController;
 
@@ -68,6 +69,17 @@ $router->get('/category/{slug}', [
 $router->get('/sitemap.xml', [
     SitemapController::class,
     'index',
+]);
+
+/*
+|--------------------------------------------------------------------------
+| Reviews (Platform categories: e.g. /reviews/inboxdollars-review/)
+|--------------------------------------------------------------------------
+*/
+
+$router->get('/reviews/{slug}', [
+    ReviewController::class,
+    'show',
 ]);
 
 /*

@@ -17,6 +17,11 @@ $xml = $sitemapService->generateSitemapXml();
 $publicPath = __DIR__ . '/public/sitemap.xml';
 $rootPath = __DIR__ . '/sitemap.xml';
 
+$publicDir = __DIR__ . '/public';
+if (!is_dir($publicDir)) {
+    mkdir($publicDir, 0755, true);
+}
+
 file_put_contents($publicPath, $xml);
 file_put_contents($rootPath, $xml);
 
