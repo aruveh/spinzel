@@ -1,14 +1,13 @@
 <aside class="blog-aside">
         <?php
             require_once __DIR__ . '../../../Support/CountryDetector.php';
-            
             if(isset($post)):
                 $adapt = $post['adaptation'];
                 $meta = isset($post['meta']) ? $post['meta'] : [];
                 $surveyCountry = $adapt['a9_country'];
                 $usersCountry = getVisitorCountryCode();
                 $surveylink = $adapt['a9_survey_link'];
-                $isSurveyPost = isset($post['categories']) && $adapt['a9_survey_link'] !== '';
+                $isSurveyPost = isset($post['categories']) && $adapt['a9_country'] !== '';
 
                 if ($isSurveyPost):
         ?>
@@ -46,7 +45,8 @@
             <?php endif; ?>
         </div>
         <?php endif; endif; ?>
-        <?php if (isset($recentPosts) && !$isSurveyPost): ?>
+
+        <?php if (isset($recentPosts) && !$isSurveyPost && (isset($currentCategory) && stripos($currentCategory, 'platform') === false)): ?>
             <div class="sidebar-widget">
                 <div class="widget-title">Recent Posts</div>
                 <div class="popular-posts">

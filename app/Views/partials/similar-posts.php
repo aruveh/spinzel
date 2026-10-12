@@ -1,4 +1,4 @@
-<?php if(isset($similarPosts)): ?>
+<?php if(isset($similarPosts) && (isset($currentCategory) && stripos($currentCategory, 'platform') === false)): ?>
 <div class="similar-title">More posts you might like</div>
 <div class="similar-grid three-cols">
     <?php
